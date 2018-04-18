@@ -1,6 +1,8 @@
 package sample;
 
-public class NewPointEvent {
+import java.util.EventObject;
+
+public class NewPointEvent  {
     //wlasne zdarzenie na znalezienie nowego punktu
 
     private double x;
@@ -8,7 +10,8 @@ public class NewPointEvent {
     private boolean isInside;
     private int counter;
 
-    public NewPointEvent(double x, double y, boolean isInside, int counter) {
+    public NewPointEvent(double x, double y, boolean isInside,int counter) {
+        /////super(source);
         this.x = x;
         this.y = y;
         this.isInside = isInside;

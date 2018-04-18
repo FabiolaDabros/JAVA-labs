@@ -37,7 +37,7 @@ public class DrawerTask extends Task {
     protected Object call() throws Exception {   //wykonuje prace w tle
 
         int hits=0;
-        for(int i=0; i<pointsNumber; i++){
+        for(int i=0; i<pointsNumber; ++i){
 
             try {
                 // Sztuczne spowolnienie dla ladniejszej animacji
@@ -48,16 +48,13 @@ public class DrawerTask extends Task {
             double x = RANGE_MIN + (RANGE_MAX - RANGE_MIN) * random.nextDouble();
             double y = RANGE_MIN + (RANGE_MAX - RANGE_MIN) * random.nextDouble();
 
-            if(i % (pointsNumber/100) == 0) {
-                updateProgress(i, pointsNumber);
-            }
+
             if(Equation.calc(x , y)) {
                 listener.onPointCalculated(new NewPointEvent(x, y, true, i));
                 hits++;
             }
             else
                 listener.onPointCalculated(new NewPointEvent(x, y, false,i));
-
             if(i % (pointsNumber/100) == 0) {
                 updateProgress(i, pointsNumber);
             }
